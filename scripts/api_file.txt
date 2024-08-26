@@ -1,0 +1,5 @@
+name = "Tine"
+apikey = "l8xx282ab83660584ddba423329cf4dbebe1"
+out_folder = r"C:\Users\Coenegrt\issuu_test"
+sip_out_folder =r"C:\Users\Coenegrt\issuu_SIP"
+themes = ["LightBlue2",'LightGrey2',"GrayGrayGray","Default1"]

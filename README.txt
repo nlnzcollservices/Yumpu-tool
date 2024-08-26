@@ -1,0 +1,1 @@
+Svetlana: Harvesting from YUMPU platform
