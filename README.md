@@ -1,56 +1,78 @@
-# Let's create the markdown file for the user with proper formatting.
 
-readme_content = """
-# Podcast Processing Pipeline
+# Yumpu Tool
 
-![Logo](./logo.ico)
-
-## Overview
-
-This repository contains a set of Python scripts designed to automate the collection, management, and processing of podcast metadata and media files. It includes integration with APIs (e.g., Vimeo and Yumpu) and tools for managing metadata, creating Submission Information Packages (SIPs) for systems like Ex Libris Alma and Rosetta, and cleaning files.
+Yumpu Tool is a Python-based tool designed to interact with the Yumpu API to download images from Yumpu links and create SIPs (Submission Information Packages) from the downloaded content. It integrates with Alma for managing bibliographic records, holding records, and items, providing an easy-to-use interface for digital librarians and archivists.
 
 ## Features
-
-- **Podcast Metadata Collection**: Automates downloading and storing podcast metadata and media files.
-- **SIP Creation**: Create Submission Information Packages (SIPs) for Ex Libris Alma and Rosetta.
-- **API Integration**: Integrate with external services like Vimeo and Yumpu for automatic media download and metadata collection.
-- **Error Handling**: Gracefully skips files with errors during metadata extraction and handles API errors.
-- **File Cleaning**: Automatically clean and organize files.
-- **Metadata Extraction**: Extracts and saves metadata and comments related to media files.
-
-## Files
-
-1. **`podcasts.py`**: The main script for processing podcasts, downloading metadata, and integrating with APIs.
-2. **`podcasts_database_handler.py`**: Manages database operations related to podcast metadata.
-3. **`yumpu_tool.py`**: Handles media downloads and processing from Yumpu.
-4. **`description_maker.py`**: Extracts descriptions from media files and generates associated metadata.
-5. **`api_file.txt`**: Configuration file that stores API keys and output paths.
+- **Download Yumpu Images**: Fetches images from a given Yumpu link and downloads them.
+- **Create Alma Records**: Supports the creation of Alma bibliographic records, holdings, and items.
+- **SIP Creation**: Generates SIPs from bibliographic information, suitable for long-term preservation.
+- **PySimpleGUI Interface**: An interactive GUI for inputting Yumpu and Alma details.
+- **Custom Themes**: Users can switch between different themes for the GUI.
 
 ## Prerequisites
+- Python 3.x
+- `requests` library
+- `wget` library
+- `PySimpleGUI`
+- `filetype`
+- `PIL`
+- Alma API keys
+- Yumpu link to download content
 
-- Python 3.10+
-- Required Python libraries are listed in `requirements.txt`.
+## Installation
 
-To install dependencies, run:
+1. Clone the repository:
 
+```bash
+git clone https://github.com/your-username/yumpu-tool.git
+cd yumpu-tool
 ```
+
+2. Install the required dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-```
-git clone https://github.com/nlnzcollservices/Yumpu-tool
-cd Yumpu-tool
-```
-```
+3. Configure the `api_file.txt` with your Alma and Yumpu API keys:
+
+```txt
 name = "Your Name"
-apikey = "your_api_key"
-out_folder = "path/to/output/folder"
-sip_out_folder = "path/to/sip/output/folder"
+apikey = "Your Alma API Key"
+out_folder = "Path to output folder"
+sip_out_folder = "Path to SIP output folder"
+themes = ["LightBlue2", "LightGrey2", "GrayGrayGray", "Default1"]
 ```
-```
+
+## Usage
+
+1. Run the tool:
+
+```bash
 python yumpu_tool.py
 ```
 
+2. A PySimpleGUI window will pop up. Fill in the required Yumpu and Alma details:
+   - **MMS ID**: Alma bib record identifier.
+   - **PO Line**: Alma Purchase Order Line.
+   - **Yumpu URL**: Link to the Yumpu document to download.
+   - **Output Folder**: Path where downloaded images and SIPs will be stored.
+   - **API Key**: Your Alma API key.
 
+3. Click "Run!" to start the process.
 
+## API Integration
 
+The tool integrates with Alma APIs to perform the following operations:
+- Fetch item records by MMS ID and holding ID.
+- Update item descriptions automatically.
+- Create new Alma item records by PO line.
+
+For more details on Alma APIs, visit the [Ex Libris Developer Network](https://developers.exlibrisgroup.com/alma/apis/).
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
