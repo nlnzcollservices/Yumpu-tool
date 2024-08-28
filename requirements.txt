@@ -1,0 +1,6 @@
+
+requests
+wget
+PySimpleGUI<5
+filetype
+Pillow
