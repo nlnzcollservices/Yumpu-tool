@@ -1,3 +1,6 @@
+# Deprecated - See [Flipbook-Webscraping](https://github.com/nlnzcollservices/Flipbook-Webscraping) instead.
+
+----
 
 # Yumpu Tool
 
